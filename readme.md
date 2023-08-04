@@ -48,6 +48,9 @@ Easy to setup and effective way to get visual and audio feedback from OBS. **THI
 1. Select obs_notify.py that you have copied
 1. To edit configuration edit config.toml inside obsNativeNotifier folder
 
+![*Configuration file*](https://github.com/tomasz-brak/nativeNotifierOBS/assets/62989490/a89ceb05-08a4-4b83-91b0-dace9da221e8 "Configuration file")
+*Configuration file*
+
 ## External libraries and resources
 
 - [notify-py](https://github.com/ms7m/notify-py)
