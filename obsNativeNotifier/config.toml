@@ -1,0 +1,62 @@
+# Available variables:
+# $ACTION -> The action that was performed, see [[notification.actions]]
+# $SCRIPT -> Location of the script
+
+[logs]
+level = "INFO"
+file = "$SCRIPT/obsNativeNotifier/long.log"
+
+[notification]
+# Paths to resources:
+sound = "$SCRIPT/obsNativeNotifier/sound.wav"
+image = "$SCRIPT/obsNativeNotifier/obs.svg"
+# Notification appearance:
+title = "$ACTION"
+text = "OK"
+appName = "Native OBS Notify"
+
+[[notification.actions]]
+# Actions to be detected by the script
+# ACTION (https://docs.obsproject.com/reference-frontend-api#structures-enumerations)  =  $ACTION text to be displayed
+# OBS_FRONTEND_EVENT_STREAMING_STARTING = "stream is starting"
+OBS_FRONTEND_EVENT_STREAMING_STARTED = "stream started"
+# OBS_FRONTEND_EVENT_STREAMING_STOPPING = "stream is stopping"
+OBS_FRONTEND_EVENT_STREAMING_STOPPED = "stream stopped"
+# OBS_FRONTEND_EVENT_RECORDING_STARTING = "recording is starting"
+OBS_FRONTEND_EVENT_RECORDING_STARTED = "recording started"
+# OBS_FRONTEND_EVENT_RECORDING_STOPPING = "recording is stopping"
+OBS_FRONTEND_EVENT_RECORDING_STOPPED = "recording stopped"
+OBS_FRONTEND_EVENT_RECORDING_PAUSED = "recording paused"
+OBS_FRONTEND_EVENT_RECORDING_UNPAUSED = "recording resumed"
+OBS_FRONTEND_EVENT_SCENE_CHANGED = "scene changed"
+# OBS_FRONTEND_EVENT_SCENE_LIST_CHANGED = "scene list changed"
+# OBS_FRONTEND_EVENT_TRANSITION_CHANGED = "transition changed"
+# OBS_FRONTEND_EVENT_TRANSITION_STOPPED = "transition stopped"
+# OBS_FRONTEND_EVENT_TRANSITION_LIST_CHANGED = "transition list changed"
+# OBS_FRONTEND_EVENT_TRANSITION_DURATION_CHANGED = "transition duration changed"
+# OBS_FRONTEND_EVENT_TBAR_VALUE_CHANGED = "transition bar moved"
+# OBS_FRONTEND_EVENT_SCENE_COLLECTION_CHANGING = "scene collection is changing"
+OBS_FRONTEND_EVENT_SCENE_COLLECTION_CHANGED = "scene collection changed"
+# OBS_FRONTEND_EVENT_SCENE_COLLECTION_LIST_CHANGED = "scene collection list changed"
+# OBS_FRONTEND_EVENT_SCENE_COLLECTION_RENAMED = "scene collection renamed"
+# OBS_FRONTEND_EVENT_PROFILE_CHANGING = "profile is changing"
+# OBS_FRONTEND_EVENT_PROFILE_CHANGED = "profile changed"
+# OBS_FRONTEND_EVENT_PROFILE_LIST_CHANGED = "profile list changed"
+# OBS_FRONTEND_EVENT_PROFILE_RENAMED = "profile renamed"
+OBS_FRONTEND_EVENT_FINISHED_LOADING = "finished loading, HI!"
+OBS_FRONTEND_EVENT_SCRIPTING_SHUTDOWN = "scripts are shuting down, Bye :)"
+# OBS_FRONTEND_EVENT_EXIT = "OBS is shuting down, Bye :)"
+# OBS_FRONTEND_EVENT_REPLAY_BUFFER_STARTING = "replay buffer is starting"
+OBS_FRONTEND_EVENT_REPLAY_BUFFER_STARTED = "replay buffer started"
+# OBS_FRONTEND_EVENT_REPLAY_BUFFER_STOPPING = "replay buffer is stopping"
+OBS_FRONTEND_EVENT_REPLAY_BUFFER_STOPPED = "replay buffer stopped"
+OBS_FRONTEND_EVENT_REPLAY_BUFFER_SAVED = "replay buffer saved"
+# OBS_FRONTEND_EVENT_STUDIO_MODE_ENABLED = "studio mode enabled"
+# OBS_FRONTEND_EVENT_STUDIO_MODE_DISABLED = "studio mode disabled"
+# OBS_FRONTEND_EVENT_PREVIEW_SCENE_CHANGED = "studio mode scene preview changed"
+# OBS_FRONTEND_EVENT_SCENE_COLLECTION_CLEANUP = "scene collection cleanup"
+OBS_FRONTEND_EVENT_VIRTUALCAM_STARTED = "virtual camera started"
+OBS_FRONTEND_EVENT_VIRTUALCAM_STOPPED = "virtual camera stopped"
+# OBS_FRONTEND_EVENT_THEME_CHANGED = "theme changed"
+OBS_FRONTEND_EVENT_SCREENSHOT_TAKEN = "screenshot taken"
+
