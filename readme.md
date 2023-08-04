@@ -1,6 +1,7 @@
 # nativeNotifierOBS
 
 Easy to setup and effective way to get visual and audio feedback from OBS. **THIS is the only script you need to install, no additional programs needed!**. Remember to enable notification on top of apps and disable *do not disturb* mode
+
 ![*A notification on garuda linux*](https://github.com/tomasz-brak/nativeNotifierOBS/assets/62989490/f3e4852d-2d3d-42e7-a3ec-b89da5324e52 "A notification on garuda linux")
 *A notification on garuda linux*
 
