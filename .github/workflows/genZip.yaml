@@ -1,8 +1,8 @@
-name: Create Zip Artifact
+name: Create Release with Notifier Script
 on:
   push:
     branches:
-      - main
+      - main # Adjust the branch name if needed
 
 jobs:
   build:
@@ -10,13 +10,38 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
-    - name: Create Zip
-      run: zip -r notifier.zip obsNativeNotifier obs_notify.py
+    - name: Create Zip File
+      run: |
+        zip -r notifier-script.zip obs_notify.py obsNativeNotifier
+        mv notifier-script.zip $GITHUB_WORKSPACE
 
-    - uses: actions/upload-artifact@v3
+    - name: Read current version
+      id: read_version
+      run: echo "::set-output name=version::$(cat version.txt)"
+
+    - name: Bump Version
+      id: bump_version
+      run: echo "::set-output name=new_version::$((${{ steps.read_version.outputs.version }} + 1))"
+
+    - name: Update version file
+      run: echo "${{ steps.bump_version.outputs.new_version }}" > version.txt
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
       with:
-        name: notifier-script
-        path: notifier.zip
-        
+        tag_name: v1.0.${{ steps.bump_version.outputs.new_version }}
+        release_name: Release v1.0.${{ steps.bump_version.outputs.new_version }}
+        draft: false
+        prerelease: false
+
+    - name: Upload Release Asset
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: $GITHUB_WORKSPACE/notifier-script.zip
+        asset_name: notifier-script.zip
+        asset_content_type: application/zip
