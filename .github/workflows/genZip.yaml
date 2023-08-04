@@ -15,7 +15,6 @@ jobs:
     - name: Create Zip File
       run: |
         zip -r notifier-script.zip obs_notify.py obsNativeNotifier
-        mv notifier-script.zip $GITHUB_WORKSPACE
 
     - name: Read current version
       id: read_version
